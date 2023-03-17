@@ -21,11 +21,11 @@
         </div>
         <div class="expense_chart bg-white-1 p-4 mt-4 rounded-xl ">
             <p class="text-brown-1 font-bold text-[20px] ">Spending Last - 7 days</p>
-            <div class="chart">
-
+            <div class="chart pb-6">
+                <canvas id="myChart"></canvas>
             </div>
-            <br/>
-            <div class="flex justify-between gap-10">
+            <hr/>
+            <div class="flex justify-between gap-10 pt-5">
             <div> <p class="text-[10px] text-grey-1">Total this month</p>
             <h2 class="text-[30px] leading-none font-bold text-brown-1">$478.33</h2>
             </div>
@@ -38,5 +38,7 @@
         </div>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script defer src="app.js"></script>
 </body>
 </html>
