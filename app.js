@@ -1,20 +1,61 @@
+import data from '../assets/data.json' assert {type:'json'};
+
+const toolTipTitle = (item) =>{    
+    return ''
+}
+const labelToolTip = (item) =>{
+    return `$${item.raw}`
+}
+
+
 const ctx = document.getElementById('myChart');
 
 new Chart(ctx, {
   type: 'bar',
   data: {
-    labels: ['mon', 'tue', 'wed', 'thur', 'fri', 'sat', 'sun'],
+    labels: data.map((info=>info.day)),
     datasets: [{
-      label: '# of Votes',
-      data: [12, 19, 3, 5, 2, 3],
-      borderWidth: 1
+      data: data.map((info=>info.amount)),
+        backgroundColor: data.map((info=>info.day==='wed'?'#76b5bc':'#ec775f')),
     }]
   },
   options: {
     scales: {
       y: {
-        beginAtZero: true
+        ticks:{
+            display: false
+        },
+        border:{
+            display: false
+        },
+        grid:{
+            display: false
+        },
+      },
+      x:{
+         grid:{
+            display: false
+         },
+         border:{
+            display: false
+         },
+            ticks:{
+                display:"#ff9b87"
+            }
       }
+    },
+    plugins: {
+        legend:{
+            display: false
+        },
+        tooltip:{
+            yAlign:'bottom',
+            displayColors:false,
+            callbacks:{
+                title:toolTipTitle,
+                label:labelToolTip
+            }
+        }
     }
   }
 });
